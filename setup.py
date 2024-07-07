@@ -21,9 +21,6 @@ setup(
         "urllib3",
         "kaggle", 
     ],
-    project_urls={
-        "Bug Tracker": "https://gitlab.jhuapl.edu/fordnp1/acessim_game/-/issues",
-    },
     classifiers=[
         "Programming Language :: Python :: 3",
     ],
