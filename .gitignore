@@ -157,13 +157,10 @@ cython_debug/
 .idea/
 
 *.zip
-<<<<<<< HEAD
 *.vscode/
-=======
 
 kaggle.json
 data
 *images/*
 *.dcm
 *.csv
->>>>>>> c1e2f8840b9f354375069a75ba0687b9c9602209

@@ -22,9 +22,10 @@ LEVELS = [
     'l5_s1',
 ]
 LABELS = {
-    "Normal/Mild": 0,
-    "Moderate": 1,
-    "Severe": 2,
+    "Normal/Mild": np.array([1,0,0]),
+    "Moderate": np.array([0,1,0]),
+    "Severe": np.array([0,0,1]),
+    np.nan: np.array([1,0,0]),
 }
 IMG_SIZE = [512, 512]
 IN_CHANS = 30
@@ -77,7 +78,7 @@ class RSNA24TrainDataset(Dataset):
         x = np.zeros((IMG_SIZE[0], IMG_SIZE[1], IN_CHANS), dtype=np.uint8)
         t = self.labels.iloc[idx]
         st_id = int(t['study_id'])
-        label = t.iloc[1:].apply(lambda x: LABELS[x]).values.astype(np.int8)
+        label = np.stack(t.iloc[1:].apply(lambda x: LABELS[x]).values).astype(np.float16)
         
         # Sagittal T1
         allimgs_st1 = self.get_img_paths(st_id, 'Sagittal T1')
