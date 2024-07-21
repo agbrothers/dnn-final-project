@@ -8,7 +8,7 @@ class RSNA24Model(nn.Module):
         super().__init__()
         self.model = timm.create_model(
             model_name,
-            pretrained=False,  # 不从线上加载预训练模型
+            pretrained=False,  
             features_only=features_only,
             in_chans=in_c,
             num_classes=n_classes,
